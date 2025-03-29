@@ -7,6 +7,10 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 wcocr.init("/app/wx/opt/wechat/wxocr", "/app/wx/opt/wechat")
 
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({ "method": "POST", "url": "/ocr", "body": { "image": "base64_image_string" }}), 200
+
 @app.route('/ocr', methods=['POST'])
 def ocr():
     try:

@@ -21,7 +21,7 @@ def ocr():
             os.makedirs(temp_dir)
 
         # Generate unique filename and save image
-        filename = os.path.join(temp_dir, f"{str(uuid.uuid4())}.png")
+        filename = os.path.join(temp_dir, f"{str(uuid.uuid4())}")
         try:
             image_bytes = base64.b64decode(image_data)
             with open(filename, 'wb') as f:

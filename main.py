@@ -3,13 +3,17 @@ import os
 import uuid
 import base64
 from flask import Flask, request, jsonify, make_response
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, origins="*")
+
 wcocr.init("/app/wx/opt/wechat/wxocr", "/app/wx/opt/wechat")
 
 @app.route('/', methods=['GET'])
 def index():
-    curl_example = """ curl --location 'http(s)://YOUR_HOST/file-ocr' --form 'image=@"/tmp/file.png"' -s | awk -F'\t\t' '{print $1}'"""
+    curl_example = """ curl --location 'http(s)://APP_HOST/file-ocr' --form 'image=@"/tmp/file.png"' -s | awk -F'\t\t' '{print $1}'"""
     return jsonify({
         "ussage": [
             { "method": "POST", "url": "/ocr", "body": { "image": "base64_image_string" }},

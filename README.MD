@@ -22,10 +22,10 @@ This project would not be possible without the work of [swigger](https://github.
 
 ```bash
 # Pull the image
-docker pull golangboyme/wxocr
+docker pull dhub.ksr.la/wxocr
 
 # Run the container
-docker run -d -p 5000:5000 --name wechat-ocr-api golangboyme/wxocr
+docker run -d -p 5000:5000 --name wechat-ocr-api dhub.ksr.la/wxocr
 ```
 
 ### API Usage

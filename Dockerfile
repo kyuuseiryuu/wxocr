@@ -14,4 +14,6 @@ COPY main.py /app/main.py
 
 WORKDIR /app
 
+EXPOSE 5000
+
 CMD ["python", "main.py"]

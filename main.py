@@ -51,11 +51,13 @@ def ocr_file():
         # Process image with OCR
         result = dict(wcocr.ocr(filename))
         ocr_response = result.get('ocr_response', [])
+        text = ""
         for item in ocr_response:
             datas = [item["text"], item["rate"], item['top'], item["left"], item["right"], item["bottom"]]
             line = '\t\t'.join([str(x) for x in datas]) + '\n'
             content += line + '\n'
-        return make_response(content, 200)
+            text += item["text"]
+        return make_response(text + '\n' + content, 200)
     except Exception as e:
         return make_response(content, 200)
 

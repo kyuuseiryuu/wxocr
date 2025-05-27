@@ -38,6 +38,12 @@ curl -X POST http://localhost:5000/ocr \
   -d '{"image": "BASE64_ENCODED_IMAGE_DATA"}'
 ```
 
+OR post file to `/file-ocr`
+
+```bash
+curl --location 'http://localhost:5000/file-ocr' --form 'image=@"/tmp/file.png"' -s | awk -F'\t\t' '{print $1}'
+```
+
 #### Example Response
 
 ```json
